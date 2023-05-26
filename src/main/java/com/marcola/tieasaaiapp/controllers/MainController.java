@@ -31,7 +31,7 @@ public class MainController {
             return "fase1.html";
         }
 
-        if(sfOp.get().getFase() == 3){
+        if(sfOp.get().getFase() == 4){
             return "fasesecreta.html";
         }
 
