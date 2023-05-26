@@ -1,6 +1,8 @@
 package com.marcola.tieasaaiapp.controllers;
 
+import com.marcola.tieasaaiapp.model.Fase;
 import com.marcola.tieasaaiapp.model.SessionFase;
+import com.marcola.tieasaaiapp.repos.FaseRepository;
 import com.marcola.tieasaaiapp.repos.SessionfaseRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +13,42 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 import java.util.Optional;
 
-@RestController
+@Controller
 public class MainController {
     @Autowired
     SessionfaseRepository sfr;
 
+    @Autowired
+    FaseRepository fr;
+
+
     @GetMapping("/")
     public String index(HttpSession session){
-        Optional<SessionFase> sf = sfr.findById(session.getId());
-
-       // SessionFase sf = new SessionFase("" + session.getId(), 0);
-        //sfr.save(sf);
-        if(sf.isPresent()) {
-            return "" + session.getId();
+        Optional<SessionFase> sfOp = sfr.findById(session.getId());
+        if(sfOp.isEmpty()) {
+            SessionFase newSessionFase = new SessionFase(session.getId(), 1);
+            sfr.save(newSessionFase);
+            return "fase1.html";
         }
-        return ":(" + session.getId();
+
+        if(sfOp.get().getFase() == 3){
+            return "fasesecreta.html";
+        }
+
+        return "fase" + sfOp.get().getFase() + ".html";
+    }
+
+    public void iniciarBanco(){
+        Fase fase1 = new Fase("1", "A cruel angel thesis");
+        Fase fase2 = new Fase("2", "will soon take flight through the window.");
+        Fase fase3 = new Fase("3", "EL PSY CONGROO");
+        fr.save(fase1);
+        fr.save(fase2);
+        fr.save(fase3);
+    }
+    @GetMapping("ITWASHEREALLALONG")
+    public String itwashere(){
+        return "ITWASHEREALLALONG.html";
     }
 }
 

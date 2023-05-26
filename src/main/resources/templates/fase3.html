@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIEASAAI</title>
+</head>
+<style>
+    html,body {
+        margin: 0;
+        overflow-x: hidden;
+        background-color: black;
+    }
+
+    h1, h2, p, input {
+        text-align: center;
+        font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+        color: white;
+    }
+
+    p {
+        font-size: 40px;
+    }
+
+    input {
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: black;
+        height: 35px;
+        width: 50%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    form {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .center {
+        height: 500px;
+        margin-top: 200px;
+    }
+
+    img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 130px;
+    margin-bottom: 30px;
+    }
+
+</style>
+<body>
+<div class="center">
+    <div>
+        <h1>TIEASAAI</h1>
+        <h2>Teste de indivíduos estranhos, atemorizantes, sábios, autênticos, altruístas e inteligentes.</h2>
+    </div>
+    <div>
+        <p>0  9   4         1   6</p>
+        <img src="https://cdn.discordapp.com/attachments/546813603924279354/1111010314541080636/image.png">
+        <form action="/response" method="GET">
+            <input hidden name="fase" value="2">
+            <input name="resposta" type="text">
+            <input type="submit" hidden>
+        </form>
+    </div>
+</div>
+</body>
+</html>
