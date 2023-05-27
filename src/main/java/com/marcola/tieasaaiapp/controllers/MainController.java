@@ -26,9 +26,13 @@ public class MainController {
     public String index(HttpSession session){
         Optional<SessionFase> sfOp = sfr.findById(session.getId());
         if(sfOp.isEmpty()) {
-            SessionFase newSessionFase = new SessionFase(session.getId(), 1);
+            SessionFase newSessionFase = new SessionFase(session.getId(), 1, false);
             sfr.save(newSessionFase);
             return "fase1.html";
+        }
+
+        if(sfOp.get().isFinished()){
+            return "empty.html";
         }
 
         if(sfOp.get().getFase() == 4){
@@ -47,8 +51,21 @@ public class MainController {
         fr.save(fase3);
     }
     @GetMapping("ITWASHEREALLALONG")
-    public String itwashere(){
-        return "ITWASHEREALLALONG.html";
+    public String itWasHere(HttpSession session){
+        Optional<SessionFase> sfOp = sfr.findById(session.getId());
+        if(sfOp.isEmpty() || sfOp.get().getFase() < 4) {
+            return "ITWASHEREALLALONGPLACEHOLDER.html";
+        }
+
+        SessionFase sessionFase = sfOp.get();
+        if(!sessionFase.isFinished() && sessionFase.getFase() >= 4) {
+            sessionFase.setFinished(true);
+            sfr.save(sessionFase);
+            return "ITWASHEREALLALONG.html";
+        }
+
+        return "empty.html";
+
     }
 }
 

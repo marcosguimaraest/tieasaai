@@ -1,7 +1,7 @@
 package com.marcola.tieasaaiapp.model;
 
+import jakarta.annotation.Generated;
 import lombok.AllArgsConstructor;
-import lombok.Cleanup;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -10,10 +10,9 @@ import org.springframework.data.redis.core.RedisHash;
 @Getter
 @Setter
 @AllArgsConstructor
-@RedisHash("session-fase")
-public class SessionFase {
-    @Id private String session;
-    private int fase;
-    private boolean finished = false;
+@RedisHash("user-discord")
+public class UserDiscord {
+    @Id
+    public String Id;
+    public String discordUser;
 }
-
