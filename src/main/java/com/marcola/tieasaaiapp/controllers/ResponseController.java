@@ -70,7 +70,7 @@ public class ResponseController {
                                         HttpSession session){
             UserDiscord ud = new UserDiscord(session.getId(), userDiscord);
             udr.save(ud);
-            System.out.println("Usuário discord salvo no banco, nome: " + userDiscord);
+            System.out.println("Usuário discord salvo no banco, código do usuário: " + userDiscord);
             return "redirect:/";
         }
 }
