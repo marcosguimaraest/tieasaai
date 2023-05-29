@@ -1,8 +1,9 @@
 # TIEASAAI
 ###### Teste criado para medir a capacidade de alguns indivíduos, e também para se divertir...
 
-![image](https://github.com/marcosguimaraest/tieasaai/assets/86073233/387bb1f4-14f2-4a01-bc25-1a5f7745a705)
-![image](https://github.com/marcosguimaraest/tieasaai/assets/86073233/d396bba0-71c6-4b03-978c-b097b4ef1d59)
+![image](https://github.com/marcosguimaraest/tieasaai/assets/86073233/a7842dd0-0c2c-46b1-be9c-51c1718f93e4)
+![image](https://github.com/marcosguimaraest/tieasaai/assets/86073233/d2f2e314-ddc9-453a-b64c-d0b61ab6cebd)
+
 
 ## Requisitos
 - JDK 17
